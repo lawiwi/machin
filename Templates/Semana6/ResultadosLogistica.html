@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados del Modelo - Telecomunicaciones</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #ffeae8;
+            color: #2c3e50;
+            line-height: 1.6;
+            padding: 1rem;
+            width: 100%;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+
+        .university-header {
+            background-color: #aa6d66;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            font-size: clamp(1rem, 2vw, 1.2rem);
+        }
+        
+        h1 {
+            color: #ffffff;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin: 1rem 0;
+            text-align: center;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #aa6d66;
+        }
+        
+        p, li {
+            margin-bottom: 0.8rem;
+            font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+        }
+        
+        .definition-list {
+            background-color: white;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1.2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .definition-list li {
+            margin-bottom: 0.6rem;
+            list-style-type: none;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+        
+        .definition-list li::before {
+            content: '•';
+            color: #8b514b;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+   
+        .matriz-container {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .matriz-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        
+        .no-data {
+            color: #e74c3c;
+            font-style: italic;
+        }
+        
+        .metricas-container {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        table {
+            width: 100%;
+            max-width: 500px;
+            margin: 1rem auto;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 0.6rem;
+            text-align: left;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        th {
+            background-color: #aa6d66;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #ecf0f1;
+        }
+        
+        /* Análisis de resultados */
+        .analysis {
+            background-color: #f8f9fa;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #ffd6d1;
+        }
+        
+        .analysis p {
+            margin-bottom: 0.6rem;
+        }
+        
+        /* Botón */
+        .btn {
+            background-color: #aa6d66;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.3rem;
+            font-size: clamp(0.9rem, 1.1vw, 1rem);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin: 1rem auto;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .btn:hover {
+            background-color: #8b514b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+        }
+        
+        .btn-container {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 0.8rem;
+            }
+            
+            .definition-list, .matriz-container, .metricas-container, .analysis {
+                padding: 1rem;
+                margin: 1rem 0;
+            }
+            
+            table {
+                max-width: 100%;
+            }
+            
+            th, td {
+                padding: 0.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .university-header {
+                padding: 0.8rem;
+            }
+            
+            h1 {
+                margin: 0.8rem 0;
+            }
+            
+            .definition-list li {
+                padding-left: 1rem;
+            }
+            
+            .btn {
+                padding: 0.6rem 1rem;
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header universitario -->
+        <div class="university-header">
+            Universidad de Cundinamarca - Extensión Chía
+        </div>
+        
+        <h1>Matriz de Confusión</h1>
+        
+        <div class="definition-list">
+            <p>La matriz de confusión permite evaluar el rendimiento del modelo de regresión logística. En ella:</p>
+            <ul>
+                <li><strong>Verdaderos Positivos (TP):</strong> Casos correctamente predichos como cancelaciones.</li>
+                <li><strong>Falsos Positivos (FP):</strong> Casos predichos como cancelaciones, pero que realmente no lo son.</li>
+                <li><strong>Verdaderos Negativos (TN):</strong> Casos correctamente identificados como no cancelaciones.</li>
+                <li><strong>Falsos Negativos (FN):</strong> Casos que deberían haber sido predichos como cancelaciones, pero no lo fueron.</li>
+            </ul>
+        </div>
+        
+        <div class="matriz-container">
+            {% if matriz_confusion %}
+                <img src="data:image/png;base64,{{ matriz_confusion }}" alt="Matriz de Confusión">
+            {% else %}
+                <p class="no-data">No se pudo generar la matriz de confusión.</p>
+            {% endif %}
+        </div>
+        
+        <div class="metricas-container">
+            <h2>Métricas del Modelo</h2>
+            <table>
+                <tr>
+                    <th>Métrica</th>
+                    <th>Valor</th>
+                </tr>
+                <tr>
+                    <td>Accuracy</td>
+                    <td>{{ accuracy }}</td>
+                </tr>
+                <tr>
+                    <td>Precision</td>
+                    <td>{{ precision }}</td>
+                </tr>
+                <tr>
+                    <td>Recall</td>
+                    <td>{{ recall }}</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="analysis">
+            <h2>Análisis de los Resultados</h2>
+            <p>El modelo presenta una <strong>alta precisión global ({{ accuracy }})</strong>, lo que indica que clasifica correctamente a la mayoría de los clientes según sus hábitos de compra.</p>
+            <p>La <strong>precisión ({{ precision }})</strong> sugiere que, cuando el modelo asigna una categoría a un cliente, suele acertar, aunque pueden existir algunos casos mal clasificados.</p>
+            <p>El <strong>recall ({{ recall }})</strong> muestra que el modelo es eficaz detectando correctamente a los clientes de cada categoría, lo cual es clave para estrategias de fidelización o marketing dirigido.</p>
+        </div>
+        
+        <div class="btn-container">
+            <button class="btn" onclick="location.href='/Telecomunicaciones/'">Volver al Menú</button>
+        </div>
+    </div>
+</body>
+</html>

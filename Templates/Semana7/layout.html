@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Modelos de Clasificación{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head> 
+<body>
+    <header>
+        <div class="university-header">
+            <h1>Universidad de Cundinamarca - Extensión Chía</h1>
+        </div>
+        <div class="welcome-message">
+            <h2>Bienvenido a nuestro proyecto</h2>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            
+            <li><a  class="return-btn" onclick="location.href='/'">Inicio</a></li>
+            <li class="dropdown">
+                <a href="#">Modelos</a>
+                <ul class="dropdown-content">
+                    {% for modelo in modelos %}
+                        <li><a href="{{ url_for('modelo', modelo_id=modelo[0]) }}">{{ modelo[1] }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p> 2025 Universidad de Cundinamarca - Extension Chia</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends "Semana7/layout.html" %}
+
+{% block title %}Inicio - Modelos de Clasificación{% endblock %}
+
+{% block content %}
+    {% for modelo in modelos_detalle %}
+    
+        <section class="model-section" id="{{ modelo[0]|lower|replace(' ', '-') }}">
+            <h3>{{ modelo[0] }}</h3>
+            <div class="model-content">
+                <div class="model-description">
+                    <p>{{ modelo[1] }}</p>
+                    <a href="{{ modelo[2] }}" target="_blank">Más información</a>
+                </div>
+                <div class="model-image">
+                    <img src="{{ modelo[3] }}" alt="{{ modelo[0] }}">
+                </div>
+            </div>
+        </section>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "Semana7/layout.html" %}
+
+{% block title %}{{ modelo[1] }} - Detalle{% endblock %}
+
+{% block content %}
+<div class="model-detail">
+    <h1>{{ modelo[1] }}</h1>
+    <p>{{ modelo[2] }}</p>
+    <p><a href="{{ modelo[3] }}" target="_blank">Fuente de información</a></p>
+    <img src="{{ modelo[4] }}" alt="Imagen del modelo">
+    <br>
+    <a class="back-button" href="{{ url_for('index') }}">← Volver al inicio</a>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regresion Lineal</title>
+</head>
+<body>
+    <h1>Regresion Lineal: Calcular salario mensual dependiendo en años de estudio.</h1>
+    <form method="post">
+        <label for = "salario">Años de estudio</label>
+        <input type = "number" Name = "salario" required>
+        <input type = "submit" value="Predecir">
+    </form>
+    {% if result is not none%}
+        <h2>Salario Mensual Estimado:{{result}}</h2>
+    {% endif %}
+
+    <h2>Gráfico de Regresión Lineal</h2>
+    <img src="data:image/png;base64,{{ plot_url }}" alt="Gráfico de regresión">
+</body>
+</html>

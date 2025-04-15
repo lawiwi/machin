@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear Regression Grades</title>
+</head>
+<body>
+    <h1>Linea Regression: Calculte Grades Depends On Study Hours</h1>
+    <form method="post">
+        <label for = "hours">Study Hours</label>
+        <input type = "number" Name = "hours" required>
+        <input type = "submit" value="Predecir">
+    </form>
+    {% if result is not none%}
+        <h2>Estimated Grades:{{result}}</h2>
+    {% endif %}
+
+    <h2>Gráfico de Regresión Lineal</h2>
+    <img src="data:image/png;base64,{{ plot_url }}" alt="Gráfico de regresión">
+</body>
+</html>

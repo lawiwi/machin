@@ -1,0 +1,169 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>libro</title>
+    <script src="https://kit.fontawesome.com/50956a932a.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='estiloslibro.css') }}">
+    <script src="{{ url_for('static', filename='libro.js') }}" defer></script>
+</head>
+<body>
+    <!-- Anterior Pagina Flecha -->
+
+    <button id="ante-Btn">
+        <i class="fas fa-arrow-circle-left"></i>
+    </button>
+
+
+    <!-- libro -->
+    <div id="libro" class="libro">
+        <!-- Hoja 1 -->
+        <div id="p1" class="pagina">
+            <div class="front">
+                <div id="f1" class="front-content">
+                    <img src="https://www.ucundinamarca.edu.co/images/ucundinamarca/escudo-color.png" style="float: left; margin-right: 10px; width: 70px; height: 100px;">
+                    <p style="color:rgb(0, 0, 0); font-size:120%; font-family: 'Times New Roman', Times, serif">Universidad de Cundinamarca <br> <br>Extension Chia<br> <br>Ingenieria de Sistemas y Computación<br> <br>Danna Angelika Ruiz Rodriguez <br> <br>Laura Danniela Botia Ordoñez<br> <br>Casos de uso<br> <br>Machine Learning<br> <br>2025</p>
+                </div>
+            </div>
+            <div class="back">
+                <div id="b1" class="back-content">
+                    <h1 style="font-size: 22px; font-family: 'Times New Roman', serif; color: rgb(41, 236, 171);"><strong>Machine Learning supervisado</strong></h1>
+                    <ul style="padding-left: 20px; text-align: left;margin-top: 20;font-size: 80%;"> 
+                        <li style="margin-bottom: 5px;">El machine learning supervisado aprende patrones y relaciones entre los datos de entrada y de salida.</li>
+                        <li style="margin-bottom: 5px;">Se define por el uso de datos etiquetados.</li>
+                        <li style="margin-bottom: 5px;">Los datos etiquetados son un conjunto de 
+                            datos que contiene muchos ejemplos de características y objetivo.</li>
+                        <li style="margin-bottom: 5px;">El aprendizaje supervisado utiliza algoritmos que aprenden la relación de las características y el objetivo a partir del conjunto de datos.</li>
+                        <li style="margin-bottom: 5px;">Este proceso se denomina entrenamiento o ajuste.</li>
+                    </ul>
+                    <div style="margin-top: 5px; margin-left: 20px; margin-right: 30px;"></div>
+                    <strong style="text-align: right; margin-left: 10px; margin-right: 50px;font-size:  80%;">Hay dos tipos de algoritmos de aprendizaje supervisado:</strong>     
+                    <ol style="padding-left: 5px; text-align: left; margin-left: 20px; margin-right: 20px;font-size: 80%;">
+                        <li style="margin-bottom: 5px;">Clasificación</li>
+                        <li style="margin-bottom: 5px;">Regresión</li>
+                    </ol>
+                    <img src="https://images.datacamp.com/image/upload/v1661171231/Regression_77f74a45c6.png" alt="" style="display: block; margin: 10px auto; width: 90%; height: auto;">
+                    </div>
+            </div>
+        </div>
+        <!-- pagina 2 -->
+        <div id="p2" class="pagina">
+            <div class="front">
+                <div id="f2" class="front-content">
+                    <h1 style="font-family: 'Times New Roman', sans-serif; font-size: 24px; color: #36c9ee; position: absolute; top: 0; left: 50%; transform: translateX(-50%);">
+                        <strong>Clasificación</strong></h1>
+                    <p style="margin-top: 30px; font-size: 80%; font-family: Verdana; text-align: left; padding: 10px;">
+                    Los algoritmos de clasificación se utilizan para prever resultados discretos. Si el resultado tiene dos valores posibles, como verdadero o falso, predeterminado
+                    o no predeterminado o sí o no, hablamos de clasificación binaria. Cuando el resultado contiene más de dos valores posibles, hablamos de clasificación multiclase.
+                     Hay muchos algoritmos de machine learning que pueden utilizarse para tareas de clasificación. Algunos son:</p>
+                <ul style="text-align: left;font-size: 80%;">
+                    <li>Regresión logística</li>
+                    <li>Clasificador con árboles de decisión</li>
+                    <li>Clasificador con k vecinos más próximos</li>
+                    <li>Clasificador con bosques aleatorios</li>
+                    <li>Redes neuronales</li>
+                </ul>
+                <img src="https://image.slidesharecdn.com/dataminingymlenbiologicas-151215154245/95/datamining-y-machine-learning-para-ciencias-biolgicas-43-638.jpg?cb=1450194250" alt="" style="display: block; margin: 10px auto; width: 90%; height: auto;">
+
+                </div>
+            </div>
+
+
+
+                        <div class="back"> <!--DESDE ACA-->
+                <div id="b2" class="back-content">
+                    <h2><span style="background: #fcdbe6 ;color:  #f15c8e; font-weight: bold; padding: 2px; border: 3px solid #fac9d9; border-radius: 40px;margin-top: 10px; font-family: 'Times New Roman', Times, serif;">Tipos de tareas</span></h2>
+                    <p style="margin-top: 10px; font-size:80%;">
+                        <img src="https://www.captia.es/assets/img/web/ML.jpg" style="float: left; margin-right: 5px;margin-left: 5px; width: 110px; height: 100px;">
+                        <br>Hay cuatro tareas principales de clasificación en machine learning: clasificaciones binarias, multiclase, multietiqueta y desequilibradas.
+                    </p>
+                    <h2 style="clear: left; text-align: left; margin-left: 5px;margin-top: 10px;">
+                        <span style="background:  #e2fdf4 ;color:  #0ebd84; font-weight: bold; padding: 1px; border: 1px solid #bdfae6; border-radius: 20px;margin-top: 5px; font-family: 'Times New Roman', Times, serif; font-size: 80%;">Clasificación binaria</span>
+                    </h2>
+                    <p style="margin-top: 5px; margin-left: 8px; font-size:80%; text-align: left;">En una tarea de clasificación binaria, el objetivo es clasificar los datos de entrada en dos categorías mutuamente excluyentes.</p>
+                    <hr style="border: 1px solid rgb(188, 255, 246); margin: 5px;">
+
+                    <h2 style="clear: left; text-align: right; margin-right: 30px;">
+                        <span style="background:  #e2fdf4 ;color:  #0ebd84; font-weight: bold; padding: 1px; border: 1px solid #bdfae6; border-radius: 40px;margin-top: 10px; font-family: 'Times New Roman', Times, serif;font-size: 80%;">Clasificación multiclase</span>
+                    </h2>
+                    <p style="margin-top: 5px; margin-left: 8px; font-size:80%; text-align: right;">Intentamos prever 0 o más clases para cada ejemplo de entrada. En este caso, no hay exclusión mutua porque el ejemplo de entrada puede tener más de una etiqueta.</p>
+                    <hr style="border: 1px solid rgb(188, 255, 246); margin: 5px;">
+
+                    
+                    <h2 style="clear: left; text-align: left; margin-left: 5px;">
+                        <span style="background:  #e2fdf4 ;color:  #0ebd84; font-weight: bold; padding: 1px; border: 1px solid #bdfae6; border-radius: 40px;margin-top: 10px; font-family: 'Times New Roman', Times, serif;font-size: 80%;">Clasificación multietiqueta</span>
+                    </h2>
+                    <p style="margin-top: 5px; margin-left: 8px; font-size:80%; text-align: left;">Tiene al menos dos etiquetas de clase mutuamente excluyentes, donde el objetivo es prever a qué clase pertenece un ejemplo de entrada dado.</p>
+                    <hr style="border: 1px solid rgb(188, 255, 246); margin: 5px;">
+                    
+
+                    <h2 style="clear: left; text-align: right; margin-right: 30px;">
+                        <span style="background:  #e2fdf4 ;color:  #0ebd84; font-weight: bold; padding: 1px; border: 1px solid #bdfae6; border-radius: 40px;margin-top: 10px; font-family: 'Times New Roman', Times, serif;font-size: 80%;">Clasificación desequilibrada</span>
+                    </h2>
+                    <h2 style="clear: left; text-align: right; margin-right: 30px; font-size: 18px;"></h2>
+                    <p style="margin-top: 5px; margin-left: 8px; font-size:80%; text-align: right;">El número de ejemplos se distribuye de forma desigual en cada clase, lo que significa que podemos tener más de una clase que de las demás en los datos de entrenamiento.</p>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Pagina 5 -->
+        <div id="p3" class="pagina">
+            <div class="front">
+                <div id="f3" class="front-content">
+                    <h1><span style="background: #566ce9; color: #a5d3ff; font-weight: bold; padding: 2px; border: 3px solid #383a9e; border-radius: 40px;margin-top: 10px; font-size:75%; font-family: 'Times New Roman', Times, serif;">Ejemplos</span></h1>
+                    <p style="margin-top: 10px; font-size:80%;">
+                        <img src="https://hackaday.com/wp-content/uploads/2016/08/google-g-logo.png" style="float: right; margin-right: 5px;margin-left: 5px; width: 110px; height: 100px;  border-bottom: 2px solid rgb(112, 246, 219);padding-bottom: 5px;">
+                        <br>El caso de uso de clasificación en Machine Learning ha sido ampliamente adoptado por diversas empresas en múltiples industrias. Algunas empresas líderes que han aplicado esta técnica incluyen:
+                    </p>
+                    <h2 style="clear: left; text-align: left; margin-left: 5px;margin-top: 10px;">
+                        <span style="background:  #ffdd1b ;color:  #eea340; font-weight: bold; padding: 1px; border: 1px solid #ffaf54; border-radius: 40px;margin-top: 10px; font-family: 'Times New Roman', Times, serif;font-size: 80%;">Google</span>
+                    </h2>
+                    <p style="margin-top: 5px; margin-left: 8px; font-size:80%; text-align: left; border-bottom: 2px solid rgb(255, 168, 68);padding-bottom: 5px;"> Gmail usa clasificación binaria para detectar correos electrónicos de spam vs. no spam.</p>
+                   
+
+                    <h2 style="clear: left; text-align: right; margin-right: 30px; ">
+                        <span style="background:  #ffdd1b ;color:  #eea340; font-weight: bold; padding: 1px; border: 1px solid #ffaf54; border-radius: 40px;margin-top: 10px; font-family: 'Times New Roman', Times, serif;font-size: 80%;">Amazon</span>
+                    </h2>
+                    <p style="margin-top: 5px; margin-left: 8px; font-size:80%; text-align: right; border-bottom: 2px solid rgb(255, 168, 68);padding-bottom: 5px;"> Amazon clasifica a los clientes en diferentes segmentos para ofrecer productos personalizados.</p>
+                    
+                    
+                    <h2 style="clear: left; text-align: left; margin-left: 5px;">
+                        <span style="background:  #ffdd1b ;color:  #eea340; font-weight: bold; padding: 1px; border: 1px solid #ffaf54; border-radius: 40px;margin-top: 10px; font-family: 'Times New Roman', Times, serif;font-size: 80%;">Tesla</span>
+                    </h2>
+                    <p style="margin-top: 5px; margin-left: 8px; font-size:80%; text-align: left; border-bottom: 2px solid rgb(255, 168, 68); padding-bottom: 5px;"> Distingue entre peatones, señales de tránsito y otros vehículos</p>
+                    
+
+                    <h2 style="clear: left; text-align: right; margin-right: 30px;">
+                        <span style="background:  #ffdd1b ;color:  #eea340; font-weight: bold; padding: 1px; border: 1px solid #ffaf54; border-radius: 40px;margin-top: 10px; font-family: 'Times New Roman', Times, serif;font-size: 80%;;">Netflix & Spotify</span>
+                    </h2>
+                    <p style="margin-top: 5px; margin-left: 8px; font-size:80%; text-align: right; border-bottom: 2px solid rgb(255, 168, 68);padding-bottom: 3px;">Clasifican a los usuarios según sus preferencias para recomendar películas, series o canciones.</p>
+                    
+                    <h2 style="clear: left; text-align: left; margin-left: 5px;margin-top: 8px;">
+                        <span style="background:  #ffdd1b ;color:  #eea340; font-weight: bold; padding: 1px; border: 1px solid #ffaf54; border-radius: 40px;margin-top: 10px; font-family: 'Times New Roman', Times, serif;font-size: 80%;;">PayPal & Mastercard</span>
+                    </h2>
+                    <p style="margin-top: 5px; margin-left: 8px; font-size:80%; text-align: left;"> Clasificación binaria para detectar transacciones fraudulentas vs. legítimas.</p>
+                   
+                </div>
+            </div>
+             <!-- HASTA ACA -->
+            <div class="back">
+                <div id="b3" class="back-content">
+                    <h1><span style="background: #e6ab0b; color: #f1d65c; font-weight: bold; padding: 2px; border: 3px solid #ffea74; border-radius: 40px; font-family: Garamond;">Referencias</span></h1>
+                    <p style="text-align: left; font-family: 'Times New Roman', Times, serif; margin: 20px;"><br>Torralba, P. P. (2021). ¿Qué es el Machine Learning? Aprendizaje supervisado vs no supervisado. Thinking For Innovation. <a href="https://www.iebschool.com/blog/que-machine-learning-big-data/">https://www.iebschool.com/blog/que-machine-learning-big-data/</a>
+                     <br>All, M. (2024). Machine learning supervisado.<a href="https://www.datacamp.com/es/blog/supervised-machine-learning">https://www.datacamp.com/es/blog/</a>
+                     <br>Recuero, P. (2021). Tipos de aprendizaje en Machine Learning: supervisado y no supervisado.<a href="https://telefonicatech.com/blog/que-algoritmo-elegir-en-ml-aprendizaje">https://telefonicatech.com/blog/que-algoritmo-elegir-en-ml-aprendizaje</a>
+                     <br>Coursera. (2023). 3 tipos de machine learning que debes conocer.<a href="https://www.coursera.org/mx/articles/types-of-machine-learning">https://www.coursera.org/mx/articles</a>
+                     <br>Kelta, Z. (2024). Clasificación en machine learning: Introducción.<a href="https://www.datacamp.com/es/blog/classification-machine-learning">https://www.datacamp.com/es/blog/</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Siguiente Pagina Flecha -->
+    <button id="sig-Btn">
+        <i class="fa-solid fa-circle-arrow-right"></i>
+    </button>
+</body>
+</html>

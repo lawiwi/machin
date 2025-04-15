@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Menú de Supermercado</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #070707;
+            line-height: 2.6;
+            padding: 0px;
+            background-image: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+     
+        }
+        .main-container {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        h1 {
+            color: #3a3a3a;
+            font-size: 2.2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            padding: 0.8rem 1.5rem;
+            border-bottom: 3px solid #a9b3c8;
+            border-radius: 0 0 8px 8px;
+            text-align: center;
+            display: inline-block;
+            background: linear-gradient(to right, #f8f9fa, #ffffff, #f8f9fa);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+   
+        .button-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 900px;
+            margin-bottom: 2rem;
+        }
+        
+        .button-row button {
+            flex: 1;
+            min-width: 200px;
+            max-width: 250px;
+        }
+        
+        .button-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 30px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+            width: 100%;
+        }
+        
+        button {
+            background: #c8e0e8;
+            color: #222430;
+            border: none;
+            padding: 1.2rem;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, 
+                          rgba(255,255,255,0.1) 0%, 
+                          rgba(255,255,255,0.3) 50%, 
+                          rgba(255,255,255,0.1) 100%);
+            transform: translateX(-100%);
+            transition: transform 0.4s;
+        }
+        
+        button:hover {
+            background:#f4fdf6;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        button:hover::before {
+            transform: translateX(100%);
+        }
+        
+        button:active {
+            transform: translateY(1px);
+        }
+        
+        button span {
+            display: block;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+        
+     
+        button.return-btn {
+            background: #a5aaaf;
+            width: 100%;
+            margin-top: 100p;
+            margin-left: 0px;
+        }
+        
+        button.return-btn:hover {
+            background: #7f92d6;
+          
+        }
+        
+
+        .university-header {
+            background-color: #5668a0;
+            color: rgb(243, 243, 243);
+            padding: 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+
+            width: 100%;
+            max-width: px;margin-top: 0px;
+        }
+        
+        .university-header img {
+            height: 65px;
+            margin-right: 1px;
+            vertical-align: middle;
+            border-radius: 0%;
+        }
+        
+      
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .button-row {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .button-row button {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header universitario -->
+        <div class="university-header">
+            <img src="https://www.ucundinamarca.edu.co/images/ucundinamarca/escudo-color.png" alt="">
+            <span>Universidad de Cundinamarca - Extensión Chía</span>
+        </div>
+        
+        <!-- Título centrado -->
+        <h1>Nearest Centroid Classifier - Supermercado</h1>
+        
+        <!-- Botones en fila -->
+        <div class="button-row">
+            <button onclick="location.href='/Supermercado/Predecir'">
+                <strong>Hacer Predicción</strong>
+                <span>Modelo de Clasificacion</span>
+            </button>
+            
+           <button onclick="location.href='/Supermercado/Dataset'">
+                <strong>Ver Dataset</strong>
+                <span>Modelo y Nuevo</span>
+            </button>
+            
+           <button onclick="location.href='/Supermercado/Resultados'">
+                <strong>Ver Resultados</strong>
+                <span>Métricas y análisis</span>
+            </button>
+        </div>
+        
+        <!-- Botón de volver (centrado) -->
+        <div class="button-container">
+            <button class="return-btn" onclick="location.href='/'">
+                <strong>Volver al Inicio</strong>
+            </button>
+        </div>
+    </div>
+   
+</body>
+</html>

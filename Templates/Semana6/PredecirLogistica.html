@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predecir Cancelación</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f8ff;
+            color: #2c3e50;
+            line-height: 1.6;
+            padding: 1rem;
+            width: 100%;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .university-header {
+            background-color: #89cff0;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            font-size: clamp(1rem, 2vw, 1.2rem);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin: 1rem 0;
+            text-align: center;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #89cff0;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin: 1.2rem 0 0.8rem;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+        }
+        
+        p, li {
+            margin-bottom: 0.8rem;
+            font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+        }
+        
+        .info-container {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        
+        li::before {
+            content: '•';
+            color: #89cff0;
+            font-weight: bold;
+            position: absolute;
+            left: -1rem;
+        }
+        
+        form {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        label {
+            display: block;
+            margin: 1rem 0 0.5rem;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 0.7rem;
+            border: 1px solid #d1e0f7;
+            border-radius: 4px;
+            font-size: 1rem;
+            background-color: #f9fcff;
+            transition: all 0.3s;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #89cff0;
+            box-shadow: 0 0 0 2px rgba(137, 207, 240, 0.2);
+        }
+        
+        .btn {
+            background-color: #89cff0;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.3rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+            margin-top: 1rem;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+        
+        .btn:hover {
+            background-color: #6bb9e0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+        }
+        
+        .result-container {
+            background-color: #e6f4ff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #89cff0;
+        }
+        
+        .btn-container {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        .btn-return {
+            background-color: #b8d8f0;
+            color: #2c3e50;
+        }
+        
+        .btn-return:hover {
+            background-color: #a2c8e0;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 0.8rem;
+            }
+            
+            .info-container, form, .result-container {
+                padding: 1rem;
+                margin: 1rem 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .university-header {
+                padding: 0.8rem;
+            }
+            
+            h1 {
+                margin: 0.8rem 0;
+            }
+            
+            ul {
+                margin-left: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+   
+        <div class="university-header">
+            Universidad de Cundinamarca - Extensión Chía
+        </div>
+        
+        <h1>Calculadora de Cancelación de Servicio</h1>
+        
+        <div class="info-container">
+            <p>Esta herramienta utiliza un modelo de <strong>Regresión Logística</strong> para predecir si un cliente probablemente cancelará su servicio de telecomunicaciones. 
+               La predicción se basa en los siguientes factores:</p>
+            
+            <ul>
+                <li><strong>Duración de la Llamada:</strong> Tiempo en minutos que duró la última llamada del cliente con la empresa. Puede variar entre 1 y 60 minutos.</li>
+                <li><strong>Plan Contratado:</strong> Indica si el cliente tiene un plan de telecomunicaciones activo. 
+                    <ul>
+                        <li>0 = No tiene un plan contratado</li>
+                        <li>1 = Tiene un plan contratado</li>
+                    </ul>
+                </li>
+                <li><strong>Historial de Pago:</strong> Representa el comportamiento de pago del cliente. Es un valor entre 0.0 y 1.0, donde:
+                    <ul>
+                        <li>Cerca de 0 indica que el cliente ha tenido pagos atrasados o problemas de pago.</li>
+                        <li>Cerca de 1 indica que el cliente paga puntualmente y sin retrasos.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <form method="post">
+            <label for="duracion_llamada">Duración de la Llamada (1-60 min):</label>
+            <input type="number" id="duracion_llamada" name="duracion_llamada" min="1" max="60" required>
+            
+            <label for="plan_contratado">Plan Contratado:</label>
+            <select id="plan_contratado" name="plan_contratado">
+                <option value="0">No tiene plan contratado</option>
+                <option value="1">Tiene plan contratado</option>
+            </select>
+            
+            <label for="historial_pago">Historial de Pago (0.0 - 1.0):</label>
+            <input type="number" id="historial_pago" name="historial_pago" step="0.01" min="0" max="1" required>
+            
+            <button type="submit" class="btn">Predecir</button>
+        </form>
+        
+        {% if resultado is not none %}
+            <div class="result-container">
+                <h2>Resultado de la Predicción: {% if resultado == "Sí" %}
+                    El cliente probablemente <strong>cancelará</strong>
+                    su servicio.{% else %}
+                    El cliente probablemente 
+                     <strong>no cancelará</strong> su servicio.{% endif %}</h2>
+            </div>
+        {% endif %}
+        
+        <div class="btn-container">
+            <button onclick="location.href='/Telecomunicaciones/'" class="btn btn-return">Volver al Menú</button>
+        </div>
+    </div>
+</body>
+</html>

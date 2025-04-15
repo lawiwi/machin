@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regresion Lineal</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', 'Comic Sans MS', monospace;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        body {
+            background-color: rgb(255, 170, 212);
+        }
+        h1 {
+            color: rgb(153, 51, 110);
+            margin-left: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="number"], input[type="submit"] {
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .dropdown {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .dropbtn {
+            background-color: #ff0080;
+            color: white;
+            padding: 20px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease;
+            border-radius: 20px;
+        }
+        .dropdown-content a:hover {
+            background-color: #ff94b8;
+            color: white;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown:hover .dropbtn {
+            background-color: #e60073;
+        }
+    </style>
+</head>
+<body>
+    <div class="dropdown">
+        <button class="dropbtn">Menu</button>
+        <div class="dropdown-content">
+            <a href="#">Machine Learning</a>
+            <a href="#">Danna Angelika Ruiz Rodriguez</a>
+            <a href="#">Laura Danniela Botia Ordoñez</a>
+        </div>
+    </div>
+    <h1 style="background: #f7f5f5; font-weight: bold; padding: 15px; border-left:8px solid #ff0080; border-top-left-radius:8px; border-bottom-left-radius:8px;">Regresion Lineal: Calcular salario mensual dependiendo en años de estudio.</h1>
+    
+    <form method="post">
+        <label for = "salario" style="text-align: center; display: block; font-weight: bold; margin-bottom: 10px; font-family: 'Comic Sans MS'">Años de estudio</label>
+        <input type = "number" Name = "salario" required>
+        <input type = "submit" value = "Predecir" style="background-color: #ff0080; color: #ffffff; border: none; border-radius: 5px;">
+    </form>
+
+    {% if result is not none%}
+        <h2 style="background: #000000;color: #f7f5f5; font-weight: bold; padding: 10px; border-left:5px solid #ff0080; border-top-right-radius:8px; border-bottom-right-radius:8px;"> Salario Mensual Estimado:{{result}}</h2>
+    {% endif %}
+
+    <h2 style="background: #000000; color:#f7f5f5; font-weight: bold; padding: 10px; border-left:5px solid #ff0080; border-top-right-radius:8px; border-bottom-right-radius:8px;"> Gráfico de Regresión Lineal</h2>
+    <img src="data:image/png;base64,{{ plot_url }}" alt="Gráfico de regresión">
+</body>
+</html>
